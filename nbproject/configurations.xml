@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="94">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="Sirius" displayName="Sirius" projectFiles="true">
+      <itemPath>Sirius/Entity.cpp</itemPath>
+      <itemPath>Sirius/Entity.h</itemPath>
+      <itemPath>Sirius/Game.cpp</itemPath>
+      <itemPath>Sirius/Game.h</itemPath>
+      <itemPath>Sirius/Graphic.cpp</itemPath>
+      <itemPath>Sirius/Graphic.h</itemPath>
+      <itemPath>Sirius/Image.cpp</itemPath>
+      <itemPath>Sirius/Image.h</itemPath>
+      <itemPath>Sirius/Input.cpp</itemPath>
+      <itemPath>Sirius/Input.h</itemPath>
+      <itemPath>Sirius/Renderer.cpp</itemPath>
+      <itemPath>Sirius/Renderer.h</itemPath>
+      <itemPath>Sirius/ResourceManager.cpp</itemPath>
+      <itemPath>Sirius/ResourceManager.h</itemPath>
+      <itemPath>Sirius/Scene.cpp</itemPath>
+      <itemPath>Sirius/Scene.h</itemPath>
+      <itemPath>Sirius/Sirius.h</itemPath>
+      <itemPath>Sirius/Texture.cpp</itemPath>
+      <itemPath>Sirius/Texture.h</itemPath>
+      <itemPath>Sirius/Typedefs.h</itemPath>
+      <itemPath>Sirius/Utility.cpp</itemPath>
+      <itemPath>Sirius/Utility.h</itemPath>
+      <itemPath>Sirius/Window.cpp</itemPath>
+      <itemPath>Sirius/Window.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>Sirius</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>lib/SDL2-2.0.3/include</pElem>
+          </incDir>
+          <commandLine>-std=c++11</commandLine>
+        </ccTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>lib/SDL2-2.0.3/lib/x86</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibLibItem>SDL2main</linkerLibLibItem>
+            <linkerLibLibItem>SDL2</linkerLibLibItem>
+          </linkerLibItems>
+          <commandLine>-static-libgcc -static-libstdc++</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="Sirius/Entity.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Entity.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Graphic.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Graphic.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Image.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Image.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Input.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Renderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Renderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/ResourceManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/ResourceManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Scene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Scene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Sirius.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Texture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Texture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Typedefs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Utility.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Utility.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Window.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Window.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>lib/SDL2-2.0.3/include</pElem>
+          </incDir>
+          <commandLine>-std=c++11</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>lib/SDL2-2.0.3/lib/x86</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibLibItem>SDL2main</linkerLibLibItem>
+            <linkerLibLibItem>SDL2</linkerLibLibItem>
+          </linkerLibItems>
+          <commandLine>-static-libgcc -static-libstdc++</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="Sirius/Entity.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Entity.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Graphic.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Graphic.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Image.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Image.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Input.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Renderer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Renderer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/ResourceManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/ResourceManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Scene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Scene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Sirius.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Texture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Texture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Typedefs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Utility.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Utility.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Sirius/Window.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sirius/Window.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
