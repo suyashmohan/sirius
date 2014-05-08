@@ -8,31 +8,29 @@
 #ifndef RENDERER_H
 #define	RENDERER_H
 
-#include "SDL.h"
+#include <SDL.h>
 #include "Window.h"
-#include <memory>
+#include "Typedefs.h"
 
 namespace Sirius
-{
+{   
     class Renderer {
     public:
-        Renderer();
         Renderer(WindowPtr window);
         virtual ~Renderer();
         SDL_Renderer* getSDLRenderer();
         void setLogicalSize(int width, int height);
         void setScale(float scale);
         void setBackgroundColor(int r,int g,int b);
+        bool setScaleFilter(ScaleFilter filter);
         int getWidth();
         int getHeight();
         void clear();
-        void present();
+        void present();         
     private:
         SDL_Renderer* m_renderer;
         void createRenderer(WindowPtr window);
     };
-    
-    typedef std::shared_ptr<Renderer> RendererPtr;
 }
 
 #endif	/* RENDERER_H */

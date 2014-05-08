@@ -28,19 +28,19 @@ namespace Sirius
     Image::Image(std::string path) {
         game = Sirius::Game::getInstance();
         if(game == nullptr)
-            throw std::runtime_error("Error creating Image. Game not initialized");
+            throw std::runtime_error("[Image] Unable to create Image. Game is not initialized");
         m_texture = std::make_shared<Texture>(game->getRenderer(),path);
         if(m_texture == nullptr)
-            throw std::runtime_error("Error creating Image. nullptr is not allowed");
+            throw std::runtime_error("[Image] Unable to create Texture");
     }
     
     Image::Image(TexturePtr texture)
     {
         game = Sirius::Game::getInstance();
         if(game == nullptr)
-            throw std::runtime_error("Error creating Image. Game not initialized");
+            throw std::runtime_error("[Image] Unable to create Image. Game not initialized");
         if(texture == nullptr)
-            throw std::runtime_error("Error creating Image. nullptr is not allowed");
+            throw std::runtime_error("[Image] Unable to create Image. nullptr is not allowed");
         m_texture = texture;
     }
     
@@ -54,9 +54,14 @@ namespace Sirius
         if(m_texture != nullptr)
         {
             if(game == nullptr)
-                throw std::runtime_error("Error creating Image. Game not initialized");
+                throw std::runtime_error("[Image] Unable to create Image. Game not initialized");
             m_texture->drawTexture(game->getRenderer(), x, y);
         }
+    }
+    
+    TexturePtr Image::getTexture()
+    {
+        return m_texture;
     }
 }
 

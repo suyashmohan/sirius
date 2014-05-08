@@ -8,10 +8,10 @@
 #ifndef INPUT_H
 #define	INPUT_H
 
-#include <memory>
+#include "Typedefs.h"
 
 namespace Sirius
-{
+{   
     class Input {
     public:
         Input();
@@ -19,8 +19,6 @@ namespace Sirius
     private:
 
     };
-    
-    typedef std::shared_ptr<Input> InputPtr;
 }
 
 #endif	/* INPUT_H */

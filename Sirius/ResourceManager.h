@@ -9,12 +9,12 @@
 #define	RESOURCEMANAGER_H
 
 #include "Texture.h"
+#include "Typedefs.h"
 #include <string>
 #include <map>
-#include <memory>
 
 namespace Sirius
-{
+{   
     class ResourceManager {
     public:
         ResourceManager();
@@ -22,12 +22,10 @@ namespace Sirius
         TexturePtr addTexture(std::string name, std::string path);
         TexturePtr getTexture(std::string name);
         TexturePtr removeTexture(std::string name);
-        void clear();
+        unsigned int clear();
     private:
         std::map<std::string,TexturePtr> m_textures;
     };
-    
-    typedef std::shared_ptr<ResourceManager> ResourceManagerPtr;
 }
 
 #endif	/* RESOURCEMANAGER_H */

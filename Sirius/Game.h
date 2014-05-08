@@ -12,13 +12,10 @@
 #include "Window.h"
 #include "Renderer.h"
 #include "ResourceManager.h"
-#include <memory>
+#include "Typedefs.h"
 
 namespace Sirius
 {
-    class Game;
-    typedef std::shared_ptr<Game> GamePtr;
-    
     class Game {
     private:
         struct construct_key {};

@@ -6,11 +6,17 @@
  */
 
 #include "Entity.h"
-#include <SDL.h>
 
 namespace Sirius
 {
     Entity::Entity() {
+        game = Sirius::Game::getInstance();
+        if(game == nullptr)
+            throw std::runtime_error("[Entity] Unable to create an Entity. Game is not initialized");
+        window = game->getWindow();
+        renderer = game->getRenderer();
+        resources = game->getResourceManager();
+        
         position.x = 0;
         position.y = 0;
         scale.x = 1.0f;

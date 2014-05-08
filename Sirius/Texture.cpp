@@ -30,7 +30,7 @@ namespace Sirius
         if(m_texture != NULL)
         {
             SDL_DestroyTexture(m_texture);
-            Utility::Log::Print("Texture Destroyed -- "+path);
+            Utility::Log::Info("[Texture] Texture Destroyed - "+path);
         }
     }
     
@@ -40,7 +40,7 @@ namespace Sirius
         SDL_Surface *image = SDL_LoadBMP(file.c_str());
         if(image == NULL)
         {
-            std::string sdlError("Unable to load image : ");
+            std::string sdlError("[Texture] Unable to load image : ");
             sdlError += SDL_GetError();
             throw std::runtime_error(sdlError);
         }
@@ -50,11 +50,11 @@ namespace Sirius
         SDL_FreeSurface(image);
         if(m_texture == NULL)
         {
-            std::string sdlError("Unable to create texture : ");
+            std::string sdlError("[Texture] Unable to create texture : ");
             sdlError += SDL_GetError();
             throw std::runtime_error(sdlError);
         }
-        Utility::Log::Print("Texture Loaded -- "+path);
+        Utility::Log::Info("[Texture] Texture Loaded - "+path);
     }
     
     void Texture::drawTexture(RendererPtr renderer, int x, int y)

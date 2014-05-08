@@ -11,12 +11,11 @@
 #include "Game.h"
 #include "Graphic.h"
 #include "Texture.h"
-#include "ResourceManager.h"
+#include "Typedefs.h"
 #include <string>
-#include <memory>
 
 namespace Sirius
-{
+{   
     class Image:public Graphic {
     public:
         static GraphicPtr Create(std::string file);
@@ -25,12 +24,11 @@ namespace Sirius
         Image(TexturePtr texture);
         virtual ~Image();
         virtual void render(int x,int y,float scaleX,float scaleY,float angle);
+        TexturePtr getTexture();
     private:
         TexturePtr m_texture;
         GamePtr game;
     };
-    
-    typedef std::shared_ptr<Image> ImagePtr;
 }
 
 #endif	/* IMAGE_H */

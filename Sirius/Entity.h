@@ -9,14 +9,15 @@
 #define	ENTITY_H
 
 #include "Typedefs.h"
+#include "Game.h"
+#include "Window.h"
+#include "Renderer.h"
+#include "ResourceManager.h"
 #include "Graphic.h"
 #include <memory>
 
 namespace Sirius
 {
-    class Entity;
-    typedef std::shared_ptr<Entity> EntityPtr;
-    
     class Entity{
     public:
         template <typename T>
@@ -43,6 +44,10 @@ namespace Sirius
         void render();
     protected:
         GraphicPtr graphic;
+        GamePtr game;
+        WindowPtr window;
+        RendererPtr renderer;
+        ResourceManagerPtr resources;
     private:
         
     };

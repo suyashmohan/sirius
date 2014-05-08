@@ -16,9 +16,10 @@ namespace Sirius
     {
         namespace Log
         {
-            void Error(std::string msg);
+            void Error(std::string msg);            
+            void Warning(std::string msg);
             void Info(std::string msg);
-            void Print(std::string msg);
+            //void Print(std::string msg);
         }
     }
 }

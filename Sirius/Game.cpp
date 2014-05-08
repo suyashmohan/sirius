@@ -16,7 +16,7 @@ namespace Sirius
         m_window = nullptr;
         m_renderer = nullptr;
         m_resources = nullptr;
-        Utility::Log::Info("Sirius Initialized");
+        Utility::Log::Info("[Game] Sirius Initialized");
     }
 
     Game::~Game() {
@@ -25,7 +25,7 @@ namespace Sirius
         if(m_window != nullptr)
             m_window.reset();
         
-        Utility::Log::Info("Sirius Terminated");
+        Utility::Log::Info("[Game] Sirius Terminated");
     }
     
     GamePtr Game::initialize(int width, int height)

@@ -8,13 +8,13 @@
 #ifndef TEXTURE_H
 #define	TEXTURE_H
 
-#include "SDL.h"
+#include <SDL.h>
 #include "Renderer.h"
+#include "Typedefs.h"
 #include <string>
-#include <memory>
 
 namespace Sirius
-{
+{   
     class Texture {
     public:
         Texture();
@@ -28,8 +28,6 @@ namespace Sirius
         int m_height;
         std::string path;
     };
-    
-    typedef std::shared_ptr<Texture> TexturePtr;
 }
 
 #endif	/* TEXTURE_H */

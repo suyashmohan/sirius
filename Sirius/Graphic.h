@@ -8,10 +8,10 @@
 #ifndef GRAPHIC_H
 #define	GRAPHIC_H
 
-#include <memory>
+#include "Typedefs.h"
 
 namespace Sirius
-{
+{   
     class Graphic {
     public:
         Graphic();
@@ -20,8 +20,6 @@ namespace Sirius
     private:
 
     };
-    
-    typedef std::shared_ptr<Graphic> GraphicPtr;
 }
 
 #endif	/* GRAPHIC_H */

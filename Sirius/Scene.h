@@ -8,15 +8,18 @@
 #ifndef SCENE_H
 #define	SCENE_H
 
+#include "Typedefs.h"
+#include "Game.h"
+#include "Window.h"
+#include "Renderer.h"
+#include "ResourceManager.h"
+#include "Entity.h"
 #include <map>
 #include <string>
-#include "Entity.h"
+#include <memory>
 
 namespace Sirius
-{
-    class Scene;
-    typedef std::shared_ptr<Scene> ScenePtr;
-    
+{   
     class Scene {
     public:
         template <typename T>
@@ -45,6 +48,11 @@ namespace Sirius
         EntityPtr findEntity(std::string name);        
         unsigned int removeAllEntities();
         unsigned int countEntities();
+    protected:
+        GamePtr game;
+        WindowPtr window;
+        RendererPtr renderer;
+        ResourceManagerPtr resources;
     private:
         std::map<std::string, EntityPtr> m_entities;
     };

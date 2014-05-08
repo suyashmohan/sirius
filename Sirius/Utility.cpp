@@ -21,13 +21,18 @@ namespace Sirius
             
             void Info(std::string msg)
             {
-                std::cout << "Info  : " << msg << std::endl;
+                std::cout << "Info : " << msg << std::endl;
             }
             
-            void Print(std::string msg)
+            void Warning(std::string msg)
             {
-                std::cout << "Log   : " << msg << std::endl;
+                std::cout << "Warning : " << msg << std::endl;
             }
+            
+            /*void Print(std::string msg)
+            {
+                std::cout << "Log : " << msg << std::endl;
+            }*/
         }
     }
 }

@@ -9,14 +9,10 @@
 #include "Utility.h"
 #include <stdexcept>
 #include <memory>
+#include <sstream>
 
 namespace Sirius
-{
-    Renderer::Renderer()
-    {
-        m_renderer = NULL;
-    }
-    
+{   
     Renderer::Renderer(WindowPtr window)
     {
         m_renderer = NULL;
@@ -27,7 +23,7 @@ namespace Sirius
         if(m_renderer != NULL)
         {
             SDL_DestroyRenderer(m_renderer);
-            Utility::Log::Info("Renderer Destroyed");
+            Utility::Log::Info("[Renderer] Renderer Destroyed");
         }
     }
     
@@ -36,11 +32,11 @@ namespace Sirius
         m_renderer = SDL_CreateRenderer(window->getSDLWindow(),-1,SDL_RENDERER_ACCELERATED /*| SDL_RENDERER_PRESENTVSYNC*/);
         if(m_renderer == NULL)
         {
-            std::string sdlError("Unable to create a renderer : ");
+            std::string sdlError("[Renderer] Unable to create a renderer : ");
             sdlError += SDL_GetError();
             throw std::runtime_error(sdlError);
         }
-        Utility::Log::Info("Renderer Created");
+        Utility::Log::Info("[Renderer] Renderer Created");
     }
     
     SDL_Renderer *Renderer::getSDLRenderer()
@@ -64,18 +60,48 @@ namespace Sirius
     {
         if(m_renderer)
             SDL_RenderSetLogicalSize(m_renderer,width,height);
+        
+        std::stringstream ss;
+        ss << getWidth() << "x" << getHeight();
+        Utility::Log::Info("[Renderer] Logical size changed to '"+ss.str()+"'");
     }
     
     void Renderer::setScale(float scale)
     {
         if(m_renderer)
             SDL_RenderSetScale(m_renderer,scale,scale);
+        
+        std::stringstream ss;
+        ss << getWidth() << "x" << getHeight();
+        Utility::Log::Info("[Renderer] Logical size changed to '"+ss.str()+"'");
     }
     
     void Renderer::setBackgroundColor(int r, int g, int b)
     {
         if(m_renderer)
             SDL_SetRenderDrawColor(m_renderer, r,g,b,255);
+    }
+    
+    bool Renderer::setScaleFilter(ScaleFilter filter)
+    {
+        std::string value = "";
+        if(filter == ScaleFilter::Nearest)
+            value = "nearest";
+        else if(filter == ScaleFilter::Linear)
+            value = "linear";
+        else if(filter == ScaleFilter::Best)
+            value = "best";
+        
+        if(SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, value.c_str()) == SDL_TRUE)
+        {
+            Utility::Log::Info("[Renderer] Scale filter changed to '"+value+"'");
+            return true;
+        }
+        else
+        {
+            Utility::Log::Warning("[Renderer] Unable to change scale filter to '"+value+"'");
+            return false;
+        }
     }
     
     int Renderer::getWidth()

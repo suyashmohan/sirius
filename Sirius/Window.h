@@ -8,16 +8,15 @@
 #ifndef WINDOW_H
 #define	WINDOW_H
 
-#include "SDL.h"
+#include <SDL.h>
 #include "Window.h"
+#include "Typedefs.h"
 #include <string>
-#include <memory>
 
 namespace Sirius
-{
+{   
     class Window {
     public:
-        Window();
         Window(int width, int height);
         virtual ~Window();
         SDL_Window *getSDLWindow();
@@ -33,8 +32,6 @@ namespace Sirius
         void initSDL();
         void createWindow(int width, int height);
     };
-    
-    typedef std::shared_ptr<Window> WindowPtr;
 }
 
 #endif	/* WINDOW_H */
