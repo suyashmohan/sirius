@@ -25,12 +25,12 @@ namespace Sirius
     
     void Scene::begin(){}
     void Scene::end(){}
-    void Scene::update(){}
+    void Scene::update(float delta){}
     
-    void Scene::updateEntities() {
+    void Scene::updateEntities(float delta) {
         for(std::map<std::string, EntityPtr>::iterator it=m_entities.begin(); it!=m_entities.end(); ++it)
         {
-            it->second->update();
+            it->second->update(delta);
         }
     }
     

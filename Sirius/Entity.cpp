@@ -28,7 +28,7 @@ namespace Sirius
     
     void Entity::begin(){}
     void Entity::end(){}
-    void Entity::update(){}
+    void Entity::update(float delta){}
     
     void Entity::render()
     {

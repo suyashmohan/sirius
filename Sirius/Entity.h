@@ -39,7 +39,7 @@ namespace Sirius
         Entity();
         virtual ~Entity();
         virtual void begin();
-        virtual void update();
+        virtual void update(float delta);
         virtual void end();
         void render();
     protected:

@@ -37,7 +37,9 @@ namespace Sirius
     void Texture::loadTexture(RendererPtr renderer, std::string file)
     {
         path = file;
-        SDL_Surface *image = SDL_LoadBMP(file.c_str());
+        SDL_RWops *rw = SDL_RWFromFile(file.c_str(),"rb");
+        SDL_Surface *image = SDL_LoadBMP_RW(rw,0);
+        SDL_FreeRW(rw);
         if(image == NULL)
         {
             std::string sdlError("[Texture] Unable to load image : ");

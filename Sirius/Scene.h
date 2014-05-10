@@ -38,8 +38,8 @@ namespace Sirius
         virtual ~Scene();
         virtual void begin();
         virtual void end();
-        virtual void update();
-        void updateEntities();
+        virtual void update(float delta);
+        void updateEntities(float delta);
         void postBegin();
         void preEnd();
         void render();

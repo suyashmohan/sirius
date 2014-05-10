@@ -25,10 +25,10 @@ public:
     {     
         
     }
-    void update()
+    void update(float delta)
     {
-        x += dx;
-        y += dy;
+        x += delta*dx;
+        y += delta*dy;
         position.x = (int)x;
         position.y = (int)y;
         
@@ -36,6 +36,7 @@ public:
         {
             x = 0;
             y = 0;
+            game->switchScene("level1");
         }
     }
 };
@@ -62,36 +63,50 @@ public:
     {     
         
     }
-    void update()
+    void update(float delta)
     {
-        x += dx;
-        y += dy;
+        x += delta*dx;
+        y += delta*dy;
         position.x = (int)x;
         position.y = (int)y;
+        
+        if(x >= renderer->getHeight())
+        {
+            x = 0;
+            y = 0;
+            game->switchScene("level2");
+        }
     }
 
 };
 
-class GameScene: public Sirius::Scene
+class GameScene2: public Sirius::Scene
 {  
+    int fps;
+    float time;
 public:
+    GameScene2(){ fps = 0; time = 0.0f;}
     void begin()
     {
         renderer->setScaleFilter(Sirius::ScaleFilter::Linear);
-        renderer->setLogicalSize(512,300);
-        resources->addTexture("smiley1","smiley.bmp");
+        renderer->setLogicalSize(1024,600);
         resources->addTexture("smiley2","smiley2.bmp");
         
-        addEntity("object", Sirius::Entity::Create(std::make_shared<GameObject>(0.0f,0.0f,0.01f,0.001f)));
-        addEntity("object2", Sirius::Entity::Create(std::make_shared<GameObject>(0.0f,0.0f,0.001f,0.01f)));
-        addEntity("object3", Sirius::Entity::Create(std::make_shared<GameObject2>(0.0f,0.0f,0.005f,0.005f)));
+        addEntity("object", Sirius::Entity::Create(std::make_shared<GameObject2>(0.0f,0.0f,50.0f,50.0f)));
         
-        renderer->setBackgroundColor(255,255,255);
+        renderer->setBackgroundColor(0,0,0);
     }
     
-    void update()
+    void update(float delta)
     {
-        
+        fps += 1;
+        time += delta;
+        if(time > 1.0f)
+        {
+            //std::cout << "Scene2 FPS : " << fps << std::endl;
+            fps = 0;
+            time = 0.0f;
+        }
     }
     
     void end()
@@ -101,19 +116,60 @@ public:
     }
 };
 
-int main(int argc, char **argv){
+class GameScene: public Sirius::Scene
+{  
+    int fps;
+    float time;
+public:
+    GameScene(){ fps = 0; time = 0.0f;}
+    void begin()
+    {
+        renderer->setScaleFilter(Sirius::ScaleFilter::Linear);
+        renderer->setLogicalSize(512,300);
+        resources->addTexture("smiley1","smiley.bmp");
+        
+        addEntity("object", Sirius::Entity::Create(std::make_shared<GameObject>(0.0f,0.0f,100.0f,80.0f)));
+        
+        renderer->setBackgroundColor(255,255,255);
+    }
+    
+    void update(float delta)
+    {
+        fps += 1;
+        time += delta;
+        if(time > 1.0f)
+        {
+            //std::cout << "Scene1 FPS : " << fps << std::endl;
+            fps = 0;
+            time = 0.0f;
+        }
+    }
+    
+    void end()
+    {
+        removeAllEntities();
+        resources->clear();
+    }
+};
 
+int main(int argc, char **argv)
+{
     try
     {
         Sirius::GamePtr game = Sirius::Game::initialize(1024,600);
         Sirius::ScenePtr scene = Sirius::Scene::Create<GameScene>();
-        game->run(scene);   
+        Sirius::ScenePtr scene2 = Sirius::Scene::Create<GameScene2>();
+        game->addScene("level1",scene);
+        game->addScene("level2",scene2);
+        game->run("level1");   
+        game->removeAllScenes();
         Sirius::Game::terminate();
     }
     catch(std::runtime_error e)
     {
         Sirius::Utility::Log::Error(e.what());
     }
+    
     return 0;
 }
 

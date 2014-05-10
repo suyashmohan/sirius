@@ -24,16 +24,26 @@ namespace Sirius
         WindowPtr m_window;
         RendererPtr m_renderer;   
         ResourceManagerPtr m_resources;
+        std::map<std::string, ScenePtr> m_scenes;
+        ScenePtr m_currentScene;
     public:
         Game(construct_key);
         virtual ~Game();
         static GamePtr initialize(int width=640, int height=480);        
         static GamePtr getInstance();
         static void terminate();
-        void run(ScenePtr scene);
+        void run(std::string scene);
+        void switchScene(std::string scene);
         WindowPtr getWindow();
         RendererPtr getRenderer();    
         ResourceManagerPtr getResourceManager();
+        float ticks;
+        float getTicks();
+        ScenePtr addScene(std::string name, ScenePtr scene);
+        ScenePtr removeScene(std::string name);
+        ScenePtr findScene(std::string name);        
+        unsigned int removeAllScenes();
+        unsigned int countScenes();
     };
 }
 
